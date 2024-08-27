@@ -52,7 +52,7 @@ namespace Controllers {
 
 		void Start() {
 			Init();
-		}
+		}	
 
 		void Update() {
 			if ( !HasFreePlaces ) {
