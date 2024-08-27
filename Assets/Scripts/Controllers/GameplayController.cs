@@ -13,7 +13,7 @@ namespace Controllers {
 		public GameObject TapBlock   = null;
 		public WinWindow  WinWindow  = null;
 		public LoseWindow LoseWindow = null;
-
+		public StartWindow StartWindow = null;
 
 		int _ordersTarget = 0;
 
@@ -40,6 +40,10 @@ namespace Controllers {
 			if ( Instance == this ) {
 				Instance = null;
 			}
+		}
+
+		private void Start() {
+			StartWindow.gameObject.SetActive(true);
 		}
 
 		void Init() {
@@ -70,18 +74,6 @@ namespace Controllers {
 			LoseWindow?.Hide();
 		}
 
-		[UsedImplicitly]
-		public bool TryServeOrder(Order order) {
-			if ( !CustomersController.Instance.ServeOrder(order) ) {
-				return false;
-			}
-
-			TotalOrdersServed++;
-			TotalOrdersServedChanged?.Invoke();
-			CheckGameFinish();
-			return true;
-		}
-
 		public void Restart() {
 			Init();
 			CustomersController.Instance.Init();
@@ -98,6 +90,18 @@ namespace Controllers {
 #else
 			Application.Quit();
 #endif
+		}
+
+		[UsedImplicitly]
+		public bool TryServeOrder(Order order) {
+			if ( !CustomersController.Instance.ServeOrder(order) ) {
+				return false;
+			}
+
+			TotalOrdersServed++;
+			TotalOrdersServedChanged?.Invoke();
+			CheckGameFinish();
+			return true;
 		}
 	}
 }
