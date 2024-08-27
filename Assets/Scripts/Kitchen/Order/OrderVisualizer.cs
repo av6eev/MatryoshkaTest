@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-
+using Kitchen.Food;
 using UnityEngine;
 
-namespace CookingPrototype.Kitchen {
+namespace Kitchen.Order {
 	public sealed class OrderVisualizer : MonoBehaviour {
 		public List<FoodVisualizer> Visualizers = new List<FoodVisualizer>();
 

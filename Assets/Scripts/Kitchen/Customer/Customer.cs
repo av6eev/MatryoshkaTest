@@ -1,13 +1,10 @@
+using System.Collections.Generic;
+using Controllers;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
-using System.Collections.Generic;
-
-using  CookingPrototype.Controllers;
-
-using JetBrains.Annotations;
-
-namespace CookingPrototype.Kitchen {
+namespace Kitchen.Customer {
 	public sealed class Customer : MonoBehaviour {
 		public Image                    CustomerImage   = null;
 		public List<Sprite>             CustomerSprites = null;
@@ -16,7 +13,7 @@ namespace CookingPrototype.Kitchen {
 
 		const string ORDERS_PREFABS_PATH = "Prefabs/Orders/{0}";
 
-		List<Order> _orders   = null;
+		List<Order.Order> _orders   = null;
 		float       _timer    = 0f;
 		bool        _isActive = false;
 
@@ -47,7 +44,7 @@ namespace CookingPrototype.Kitchen {
 			CustomerImage.SetNativeSize();
 		}
 
-		public void Init(List<Order> orders) {
+		public void Init(List<Order.Order> orders) {
 			_orders = orders;
 
 			if ( _orders.Count > OrderPlaces.Count ) {
@@ -72,7 +69,7 @@ namespace CookingPrototype.Kitchen {
 		}
 
 		[UsedImplicitly]
-		public bool ServeOrder(Order order) {
+		public bool ServeOrder(Order.Order order) {
 			var place = OrderPlaces.Find(x => x.CurOrder == order);
 			if ( !place ) {
 				return false;

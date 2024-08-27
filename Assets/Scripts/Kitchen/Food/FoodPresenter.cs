@@ -1,8 +1,7 @@
+using System;
 using UnityEngine;
 
-using System;
-
-namespace CookingPrototype.Kitchen {
+namespace Kitchen.Food {
 	public sealed class FoodPresenter : MonoBehaviour {
 		[Serializable]
 		public class FoodVisualizersSet {

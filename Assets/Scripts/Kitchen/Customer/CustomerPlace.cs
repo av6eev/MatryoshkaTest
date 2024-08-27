@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CookingPrototype.Kitchen {
+namespace Kitchen.Customer {
 	public sealed class CustomerPlace : MonoBehaviour {
 		public Customer CurCustomer { get; private set; } = null;
 

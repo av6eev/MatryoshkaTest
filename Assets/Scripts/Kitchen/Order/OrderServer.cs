@@ -1,10 +1,8 @@
+using Controllers;
+using JetBrains.Annotations;
 using UnityEngine;
 
-using CookingPrototype.Controllers;
-
-using JetBrains.Annotations;
-
-namespace CookingPrototype.Kitchen {
+namespace Kitchen.Order {
 	[RequireComponent(typeof(OrderPlace))]
 	public sealed class OrderServer : MonoBehaviour {
 		OrderPlace _orderPlace;

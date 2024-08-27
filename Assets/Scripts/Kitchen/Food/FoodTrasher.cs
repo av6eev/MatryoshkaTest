@@ -1,10 +1,8 @@
 using System;
-
+using JetBrains.Annotations;
 using UnityEngine;
 
-using JetBrains.Annotations;
-
-namespace CookingPrototype.Kitchen {
+namespace Kitchen.Food {
 	[RequireComponent(typeof(FoodPlace))]
 	public sealed class FoodTrasher : MonoBehaviour {
 
@@ -21,7 +19,15 @@ namespace CookingPrototype.Kitchen {
 		/// </summary>
 		[UsedImplicitly]
 		public void TryTrashFood() {
-			throw new NotImplementedException("TryTrashFood: this feature is not implemented");
+			if ( _place.CurFood == null )
+			{
+				return;
+			}
+			
+			if ( _place.CurFood.CurStatus == Food.FoodStatus.Overcooked ) 
+			{
+				_place.FreePlace();
+			}
 		}
 	}
 }

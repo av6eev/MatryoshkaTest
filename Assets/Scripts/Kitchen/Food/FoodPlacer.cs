@@ -1,10 +1,8 @@
+using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
-using System.Collections.Generic;
-
-using JetBrains.Annotations;
-
-namespace CookingPrototype.Kitchen {
+namespace Kitchen.Food {
 	public sealed class FoodPlacer : MonoBehaviour {
 		public string                  FoodName = string.Empty;
 		public List<AbstractFoodPlace> Places   = new List<AbstractFoodPlace>();

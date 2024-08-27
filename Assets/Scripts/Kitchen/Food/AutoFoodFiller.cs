@@ -1,8 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-using System.Collections.Generic;
-
-namespace CookingPrototype.Kitchen {
+namespace Kitchen.Food {
 	public sealed class AutoFoodFiller : MonoBehaviour {
 		public string                  FoodName = null;
 		public List<AbstractFoodPlace> Places   = new List<AbstractFoodPlace>();

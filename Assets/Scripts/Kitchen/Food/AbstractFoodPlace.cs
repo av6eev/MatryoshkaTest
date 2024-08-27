@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CookingPrototype.Kitchen {
+namespace Kitchen.Food {
 	public abstract class AbstractFoodPlace : MonoBehaviour {
 		public abstract bool TryPlaceFood(Food food);
 		public abstract void FreePlace();

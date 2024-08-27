@@ -1,14 +1,13 @@
-using UnityEngine;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using Kitchen;
+using Kitchen.Customer;
+using Kitchen.Order;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
-using CookingPrototype.Kitchen;
-
-namespace CookingPrototype.Controllers {
+namespace Controllers {
 	public class CustomersController : MonoBehaviour {
 
 		public static CustomersController Instance { get; private set; }
@@ -130,16 +129,63 @@ namespace CookingPrototype.Controllers {
 			place.Free();
 			GameplayController.Instance.CheckGameFinish();
 		}
-
-
+		
 		/// <summary>
 		///  Пытаемся обслужить посетителя с заданным заказом и наименьшим оставшимся временем ожидания.
 		///  Если у посетителя это последний оставшийся заказ из списка, то отпускаем его.
 		/// </summary>
 		/// <param name="order">Заказ, который пытаемся отдать</param>
 		/// <returns>Флаг - результат, удалось ли успешно отдать заказ</returns>
-		public bool ServeOrder(Order order) {
-			throw  new NotImplementedException("ServeOrder: this feature is not implemented.");
+		public bool ServeOrder(Order order) 
+		{
+			Customer lowestTimeCustomer = null;
+			var result = false;
+			
+			foreach ( var customer in FindCustomersWithSameOrder(order) ) 
+			{
+				if ( lowestTimeCustomer == null ) 
+				{
+					lowestTimeCustomer = customer;
+					continue;
+				}
+				
+				if (customer.WaitTime < lowestTimeCustomer.WaitTime ) 
+				{
+					lowestTimeCustomer = customer;
+				}	
+			}
+
+			if ( lowestTimeCustomer == null ) 
+			{
+				Debug.LogError("ServeOrder: lowestTimeCustomer is null");
+				return false;
+			}
+
+			result = lowestTimeCustomer.ServeOrder(order);
+
+			if ( lowestTimeCustomer.IsComplete ) 
+			{
+				FreeCustomer(lowestTimeCustomer);
+			}
+
+			return result;
+		}
+
+		private IEnumerable<Customer> FindCustomersWithSameOrder(Order order)
+		{
+			foreach ( var place in CustomerPlaces ) 
+			{
+				if ( place.CurCustomer == null ) continue;
+
+				foreach ( var element in place.CurCustomer.OrderPlaces ) 
+				{
+					if ( element.CurOrder == null ) continue;
+					if ( element.CurOrder.Name != order.Name ) continue;
+
+					yield return place.CurCustomer;
+					break;
+				}
+			}
 		}
 	}
 }
