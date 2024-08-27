@@ -1,9 +1,9 @@
+using System;
+using Kitchen.Food;
 using UnityEngine;
 using UnityEngine.UI;
 
-using System;
-
-namespace CookingPrototype.Kitchen {
+namespace Kitchen {
 	public sealed class CookingTimer : MonoBehaviour {
 		[Serializable]
 		public class TimerSpriteSet {
@@ -64,7 +64,7 @@ namespace CookingPrototype.Kitchen {
 		void OnFoodPlaceUpdated() {
 			if ( Place.IsCooking ) {
 				gameObject.SetActive(true);
-				CurSet = Place.CurFood.CurStatus == Food.FoodStatus.Raw ? Normal : Overcook;
+				CurSet = Place.CurFood.CurStatus == Food.Food.FoodStatus.Raw ? Normal : Overcook;
 			} else {
 				gameObject.SetActive(false);
 			}

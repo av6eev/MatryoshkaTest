@@ -1,11 +1,9 @@
+using Controllers;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-using CookingPrototype.Controllers;
-
-using TMPro;
-
-namespace CookingPrototype.UI {
+namespace UI {
 	public sealed class TopUI : MonoBehaviour {
 		public Image    OrdersBar          = null;
 		public TMP_Text OrdersCountText    = null;

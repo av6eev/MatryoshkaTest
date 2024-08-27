@@ -1,12 +1,11 @@
-using UnityEngine;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Controllers;
+using Kitchen.Food;
+using UnityEngine;
 
-using CookingPrototype.Controllers;
-
-namespace CookingPrototype.Kitchen {
+namespace Kitchen.Order {
 	public sealed class OrderPlace : AbstractFoodPlace {
 
 		public List<FoodPlace> Places          = new List<FoodPlace>();
@@ -20,7 +19,7 @@ namespace CookingPrototype.Kitchen {
 			_possibleOrders.AddRange(OrdersController.Instance.Orders);
 		}
 
-		bool CanAddFood(Food food) {
+		bool CanAddFood(Food.Food food) {
 			if ( CurOrder.Contains(food.Name) ) {
 				return false;
 			}
@@ -45,7 +44,7 @@ namespace CookingPrototype.Kitchen {
 			_possibleOrders.RemoveAll(x => ordersToRemove.Contains(x));
 		}
 
-		public override bool TryPlaceFood(Food food) {
+		public override bool TryPlaceFood(Food.Food food) {
 			if ( !CanAddFood(food) ) {
 				return false;
 			}

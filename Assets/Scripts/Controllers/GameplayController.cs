@@ -1,13 +1,12 @@
 using System;
-
+using JetBrains.Annotations;
+using Kitchen;
+using Kitchen.Food;
+using Kitchen.Order;
+using UI;
 using UnityEngine;
 
-using CookingPrototype.Kitchen;
-using CookingPrototype.UI;
-
-using JetBrains.Annotations;
-
-namespace CookingPrototype.Controllers {
+namespace Controllers {
 	public sealed class GameplayController : MonoBehaviour {
 		public static GameplayController Instance { get; private set; }
 

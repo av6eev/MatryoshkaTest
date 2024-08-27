@@ -1,10 +1,8 @@
 using System.Collections.Generic;
-
+using JetBrains.Annotations;
 using UnityEngine;
 
-using JetBrains.Annotations;
-
-namespace CookingPrototype.Kitchen {
+namespace Kitchen.Food {
 	[RequireComponent(typeof(FoodPlace))]
 	public sealed class FoodTransfer : MonoBehaviour {
 		public bool                    OnlyTransferCooked = true;

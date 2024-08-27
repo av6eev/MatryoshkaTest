@@ -1,10 +1,8 @@
 using System.Collections.Generic;
-
+using JetBrains.Annotations;
 using UnityEngine;
 
-using JetBrains.Annotations;
-
-namespace CookingPrototype.Kitchen {
+namespace Kitchen.Food {
 	public sealed class GroupFoodServer : MonoBehaviour {
 		public List<FoodServer> Servers = null;
 

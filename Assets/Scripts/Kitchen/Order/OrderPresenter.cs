@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CookingPrototype.Kitchen {
+namespace Kitchen.Order {
 	[RequireComponent(typeof(OrderPlace))]
 	public sealed class OrderPresenter : MonoBehaviour {
 		public OrderVisualizer Visualizer = null;

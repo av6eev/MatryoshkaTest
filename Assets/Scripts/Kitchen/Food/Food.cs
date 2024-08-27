@@ -1,5 +1,5 @@
 
-namespace CookingPrototype.Kitchen {
+namespace Kitchen.Food {
 	public sealed class Food {
 		public enum FoodStatus {
 			Raw,

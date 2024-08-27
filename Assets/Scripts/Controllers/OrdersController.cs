@@ -1,13 +1,12 @@
-using System.Xml;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Collections.Generic;
-
+using System.Xml;
+using Kitchen;
+using Kitchen.Order;
 using UnityEngine;
 
-using  CookingPrototype.Kitchen;
-
-namespace CookingPrototype.Controllers {
+namespace Controllers {
 	public sealed class OrdersController : MonoBehaviour {
 
 		static OrdersController _instance = null;

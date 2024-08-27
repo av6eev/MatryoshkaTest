@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace CookingPrototype.Kitchen {
+namespace Kitchen.Order {
 	public sealed class Order {
 		public class OrderFood {
 			public string Name  { get; } = null;

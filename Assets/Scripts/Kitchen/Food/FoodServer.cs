@@ -1,10 +1,8 @@
 using System.Collections.Generic;
-
+using Controllers;
 using UnityEngine;
 
-using CookingPrototype.Controllers;
-
-namespace CookingPrototype.Kitchen {
+namespace Kitchen.Food {
 	[RequireComponent(typeof(FoodPlace))]
 	public sealed class FoodServer : MonoBehaviour {
 

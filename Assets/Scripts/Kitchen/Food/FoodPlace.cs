@@ -1,8 +1,7 @@
+using System;
 using UnityEngine;
 
-using System;
-
-namespace CookingPrototype.Kitchen {
+namespace Kitchen.Food {
 	public class FoodPlace : AbstractFoodPlace {
 		public bool  Cook         = false;
 		public float CookTime     = 0f;
@@ -80,7 +79,6 @@ namespace CookingPrototype.Kitchen {
 			FoodPlaceUpdated?.Invoke();
 			return res;
 		}
-
 
 		/// <summary>
 		/// Освобождаем место
